@@ -1,0 +1,35 @@
+table dProblema
+	lineageTag: 933c4ede-a15a-4b2c-9df6-8ef4a2d9e762
+
+	column 'Codigo Problema'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8750ac6c-2c95-477f-8da5-485f402feb7a
+		summarizeBy: none
+		sourceColumn: Codigo Problema
+
+		annotation SummarizationSetBy = Automatic
+
+	column Problema
+		dataType: string
+		lineageTag: 6a29ae81-1303-427e-9617-953791fb5001
+		summarizeBy: none
+		sourceColumn: Problema
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dProblema = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\Ewige\Downloads\Base SAC.xlsx"), null, true),
+				    dProblema_Sheet = Fonte{[Item="dProblema",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(dProblema_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Codigo Problema", Int64.Type}, {"Problema", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

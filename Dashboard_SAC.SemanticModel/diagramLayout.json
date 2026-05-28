@@ -1,0 +1,74 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 404.99999618530273,
+            "y": 0
+          },
+          "nodeIndex": "fOcorrencias",
+          "nodeLineageTag": "c456b3ec-5ccb-4d97-adfe-1749a2b8de37",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 103,
+            "y": 71
+          },
+          "nodeIndex": "dProblema",
+          "nodeLineageTag": "933c4ede-a15a-4b2c-9df6-8ef4a2d9e762",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 404,
+            "y": 318
+          },
+          "nodeIndex": "dSuporte",
+          "nodeLineageTag": "bb0bb8f4-5e19-4da0-8054-69fad1e82e79",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 708,
+            "y": 13
+          },
+          "nodeIndex": "dUsuario",
+          "nodeLineageTag": "a9584a4a-49a8-45b6-a4b7-90eacceb0d0d",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 3
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

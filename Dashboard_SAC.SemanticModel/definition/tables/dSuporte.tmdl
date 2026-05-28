@@ -1,0 +1,59 @@
+table dSuporte
+	lineageTag: bb0bb8f4-5e19-4da0-8054-69fad1e82e79
+
+	column 'Codigo Suporte'
+		dataType: int64
+		formatString: 0
+		lineageTag: 382a97e6-75a8-4f74-ac6d-e87a4bb12644
+		summarizeBy: none
+		sourceColumn: Codigo Suporte
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome Atendente'
+		dataType: string
+		lineageTag: 0e3ae9e4-6573-457f-8aa6-bb205037fdb6
+		summarizeBy: none
+		sourceColumn: Nome Atendente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sexo
+		dataType: string
+		lineageTag: e7b34a22-0343-40a8-a92c-b5c2b0f064b6
+		summarizeBy: none
+		sourceColumn: Sexo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data de Nascimento'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fd6b6434-dc5c-4980-bdeb-d290b5984183
+		summarizeBy: none
+		sourceColumn: Data de Nascimento
+
+		variation Variation
+			isDefault
+			relationship: 4b10d53a-d26f-4382-9b9c-0c3f74ab8b8a
+			defaultHierarchy: LocalDateTable_a4dcc1b1-7d3e-4426-a1bf-e93925c4c072.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dSuporte = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\Ewige\Downloads\Base SAC.xlsx"), null, true),
+				    dSuporte_Sheet = Fonte{[Item="dSuporte",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(dSuporte_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Codigo Suporte", Int64.Type}, {"Nome Atendente", type text}, {"Sexo", type text}, {"Data de Nascimento", type date}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
