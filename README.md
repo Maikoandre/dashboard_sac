@@ -2,6 +2,8 @@
 
 Este repositório contém um projeto de **Power BI** focado na análise de métricas de atendimento ao cliente, performance da equipe de suporte e perfil dos usuários.
 
+<img src="Assets/Dashboard_SAC_page-0001.jpg.jpeg">
+
 ---
 
 ## 🏗️ Estrutura do Projeto
